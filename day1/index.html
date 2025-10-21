@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS output Methods</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="logo.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <img src="logo.png" alt="" />
+        <h2>JS Projects</h2>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#innerhtml">innerHtml</a></li>
+          <li><a href="#innertext">innerText</a></li>
+          <li><a href="#documentwrite">Document.Write</a></li>
+          <li><a href="#alert">alert</a></li>
+          <li><a href="#consolelog">console.log</a></li>
+          <li><a href="#print">print</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="container" id="innerhtml">
+      <div class="input child" style="grid-area: input">
+        <h1>innerHtml</h1>
+        <input type="text" id="inputtext" placeholder="Enter your text" />
+        <button onclick="innerhtmlfunction()">Submit</button>
+      </div>
+      <div class="output child" style="grid-area: output">
+        <h3>Output:</h3>
+        <div id="outputdiv"></div>
+      </div>
+    </section>
+    <section id="innertext">
+      <div class="input child" style="grid-area: input">
+        <h1>innerText</h1>
+        <input type="text" id="inputtext1" placeholder="Enter your text" />
+        <button onclick="innertextfunction()">Submit</button>
+      </div>
+      <div class="output child" style="grid-area: output">
+        <h3>Output:</h3>
+        <div id="outputdiv1">Default Text</div>
+      </div>
+    </section>
+    <section id="documentwrite">
+      <div class="input child" style="grid-area: input">
+        <h1>Document.Write</h1>
+        <input type="text" id="inputtext2" placeholder="Enter your text" />
+        <button onclick="documentwritefunction()">Submit</button>
+      </div>
+      <div class="output child" style="grid-area: output">
+        <h3>Output:</h3>
+        <div id="outputdiv2"></div>
+      </div>
+    </section>
+    <section id="alert">
+      <div class="input child" style="grid-area: input">
+        <h1>Alert</h1>
+        <input type="text" id="inputtext3" placeholder="Enter your text" />
+        <button onclick="alertfunction()">Submit</button>
+      </div>
+      <div class="output child" style="grid-area: output">
+        <h3>Output:</h3>
+        <div id="outputdiv">
+          <h3>Alert will alert form the window</h3>
+        </div>
+      </div>
+    </section>
+    <section id="consolelog">
+      <div class="input child" style="grid-area: input">
+        <h1>console.log</h1>
+        <input type="text" id="inputtext4" placeholder="Enter your text" />
+        <button onclick="consolelogfunction()">Submit</button>
+      </div>
+      <div class="output child" style="grid-area: output">
+        <h3>Output:</h3>
+        <div id="outputdiv4"><h3>press f12 to see the console output</h3></div>
+      </div>
+    </section>
+    <section id="print">
+      <div class="input child" style="grid-area: input">
+        <h1>print</h1>
+        <input type="text" id="inputtext5" placeholder="Enter your text" />
+        <button onclick="printfunction()">Submit</button>
+      </div>
+      <div class="output child" style="grid-area: output">
+        <h3>Output:</h3>
+        <div id="outputdiv">
+          <h3>you will get the printable format of the page</h3>
+        </div>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
