@@ -1,0 +1,62 @@
+<!--this project is for learning loops-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="table.css" />
+    <link rel="shortcut icon" href="/day1/logo.ico" type="image/x-icon" />
+    <title>JS loops</title>
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <img src="/day1/logo.png" alt="" />
+        <h2>JavaScript</h2>
+      </div>
+      <nav>
+        <a href="#forlopp">For Loop</a>
+        <a href="#whileloop">While Loop</a>
+        <a href="#dowhileloop">Do While Loop</a>
+        <a href="#break">Break</a>
+        <a href="#continue">Continue</a>
+      </nav>
+    </header>
+    <section class="forloop" id="forloop">
+      <div style="grid-area: text">
+        <h2>Table Generation using for loop</h2>
+      </div>
+      <!--input card-->
+      <div class="userdata" style="grid-area: input">
+        <div style="grid-area: text1" class="text1"><h3>Enter Input</h3></div>
+        <div style="grid-area: inpu1">
+          <label for="number">Enter your name:</label>
+          <input type="number" id="number" />
+        </div>
+        <div style="grid-area: input2">
+          <label for="count">Enter a number:</label>
+          <input type="number" id="count" />
+        </div>
+        <div
+          style="
+            grid-area: button;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <button onclick="generateTable()">Generate Table</button>
+        </div>
+      </div>
+      <div class="output" style="grid-area: output">
+        <h3>Output:</h3>
+        <div id="table-output"></div>
+      </div>
+    </section>
+    <section class="whileloop" id="whileloop"></section>
+    <section class="dowhileloop" id="dowhileloop"></section>
+    <section class="break" id="break"></section>
+    <section class="continue" id="continue"></section>
+    <script src="table.js"></script>
+  </body>
+</html>
