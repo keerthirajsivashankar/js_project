@@ -1,3 +1,4 @@
+//if else statements
 let age = parseInt(prompt("How old are you?"));
 
 if (age >= 18) {
@@ -8,6 +9,8 @@ if (age >= 18) {
 
 console.log("This message will always run.");
 
+//if else if else statements
+
 let input = parseInt(prompt("Enter the number : "));
 
 if (input < 0) {
@@ -17,3 +20,8 @@ if (input < 0) {
 } else {
   console.log(input, "is Zero");
 }
+
+//ternary operator
+
+let newage = parseInt(prompt("Enter your age: "));
+console.log(newage >= 18 ? "You are an adult." : "You are a minor.");
