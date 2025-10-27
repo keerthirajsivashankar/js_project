@@ -1,0 +1,10 @@
+let num1 = 15;
+let num2 = 10;
+console.log("The sum of", num1, "and", num2, "is :", num1 + num2);
+console.log("The sub of", num1, "and", num2, "is :", num1 - num2);
+console.log("The mul of", num1, "and", num2, "is :", num1 * num2);
+console.log("The div of", num1, "and", num2, "is :", num1 / num2);
+console.log("The mod of", num1, "and", num2, "is :", num1 % num2);
+console.log("The expo of", num1, "and", num2, "is :", num1 ** 2);
+console.log("The incr of", num1, "is :", ++num1);
+console.log("The decr of", num1, "is :", --num1);
