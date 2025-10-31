@@ -1,6 +1,6 @@
 // switch case
 
-let grade = parseInt(prompt("Enter your grade (0-100):"));
+let grade = 100;
 
 switch (true) {
   case grade >= 90 && grade <= 100:
