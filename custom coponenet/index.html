@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom HTML Tag with Tailwind</title>
+    <!-- 1. Load Tailwind CSS from the CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="bg-gray-100 min-h-screen flex flex-col md:flex-row items-center justify-center p-10 gap-8"
+  >
+    <!--
+      2. USE our new custom tag!
+      We can pass data to it just like regular HTML attributes.
+      We'll create two of them to show they are reusable.
+    -->
+    <user-profile-card
+      name="Alex Parker"
+      title="Web Developer"
+      avatar="https://placehold.co/100x100/007bff/white?text=AP"
+    ></user-profile-card>
+
+    <user-profile-card
+      name="Jane Doe"
+      title="UI/UX Designer"
+      avatar="https://placehold.co/100x100/dc3545/white?text=JD"
+    ></user-profile-card>
+    <script src="app.js"></script>
+  </body>
+</html>
