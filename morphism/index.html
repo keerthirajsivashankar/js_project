@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weird JS Animations</title>
+
+    <!-- 1. Load Tailwind CSS from the CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- 
+      2. PRO-TIP: Configure Tailwind in the <head>
+      We can add our own custom keyframes and animations
+      right here for Tailwind to use!
+    -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            // A. Define the keyframes for our blob
+            keyframes: {
+              pulseWeird: {
+                "0%, 100%": {
+                  opacity: "1",
+                  transform: "scale(1)",
+                  borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
+                },
+                "50%": {
+                  opacity: "0.8",
+                  transform: "scale(1.1)",
+                  borderRadius: "30% 60% 70% 40% / 50% 60% 30% 60%",
+                },
+              },
+            },
+            // B. Define the animation utility class that uses our keyframes
+            animation: {
+              "pulse-weird": "pulseWeird 8s ease-in-out infinite",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-gray-900 text-white min-h-screen w-full flex flex-col lg:flex-row items-center justify-center p-10 gap-16 font-sans"
+  >
+    <!-- 
+      EXAMPLE 1: The Morphing Shape (JS + clip-path)
+    -->
+    <div class="text-center">
+      <h2 class="text-2xl font-bold mb-4">Example 1: Morphing Shape</h2>
+      <p class="mb-6 text-gray-400">
+        JS changes 'clip-path' on click. Tailwind animates it.
+      </p>
+      <button
+        id="morphBtn"
+        class="bg-cyan-600 px-6 py-2 rounded-lg font-medium hover:bg-cyan-700 transition-colors mb-8"
+      >
+        Morph It!
+      </button>
+
+      <div
+        id="polygon"
+        class="w-64 h-64 bg-gradient-to-r from-cyan-500 to-blue-500 transition-['clip-path'] duration-1000 ease-in-out"
+        style="clip-path: polygon(50% 0%, 0% 100%, 100% 100%)"
+      ></div>
+    </div>
+
+    <div class="text-center">
+      <h2 class="text-2xl font-bold mb-4">Example 2: Pulsing Blob</h2>
+      <p class="mb-6 text-gray-400">
+        This uses our custom 'animate-pulse-weird' class. No JS needed!
+      </p>
+      <button
+        class="bg-purple-600 px-6 py-2 rounded-lg font-medium hover:bg-purple-700 transition-colors mb-8 opacity-0"
+      >
+        (Just for spacing)
+      </button>
+
+      <div
+        id="blob"
+        class="w-64 h-64 bg-gradient-to-r from-purple-500 to-pink-500 animate-pulse-weird"
+      ></div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
