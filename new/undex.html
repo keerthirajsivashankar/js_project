@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dev Toolkit: Storage & Debugging</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 min-h-screen p-10 font-sans text-gray-800">
+    <div class="max-w-3xl mx-auto space-y-12">
+      <!-- HEADER -->
+      <div class="text-center">
+        <h1 class="text-4xl font-bold mb-2 text-blue-600">The Dev Toolkit</h1>
+        <p class="text-gray-500">
+          Open your <strong>Console (F12)</strong> to see the magic.
+        </p>
+      </div>
+
+      <!-- SECTION 1: STORAGE WARS -->
+      <section
+        class="bg-white p-8 rounded-xl shadow-lg border-l-8 border-blue-500"
+      >
+        <h2 class="text-2xl font-bold mb-4">
+          1. Storage Wars (Local vs Session vs Cookies)
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Local Storage -->
+          <div class="p-4 bg-gray-50 rounded border">
+            <h3 class="font-bold text-blue-600">LocalStorage</h3>
+            <p class="text-xs text-gray-500 mb-2">
+              Persists FOREVER (until cleared).
+            </p>
+            <p class="text-xs mb-2">
+              Use for:
+              <span class="bg-yellow-200 px-1">Dark Mode, Settings</span>
+            </p>
+            <button
+              onclick="saveLocal()"
+              class="w-full bg-blue-600 text-white py-1 rounded hover:bg-blue-700"
+            >
+              Save Theme
+            </button>
+          </div>
+
+          <!-- Session Storage -->
+          <div class="p-4 bg-gray-50 rounded border">
+            <h3 class="font-bold text-green-600">SessionStorage</h3>
+            <p class="text-xs text-gray-500 mb-2">Dies when TAB closes.</p>
+            <p class="text-xs mb-2">
+              Use for:
+              <span class="bg-yellow-200 px-1">Form inputs, Shopping Cart</span>
+            </p>
+            <button
+              onclick="saveSession()"
+              class="w-full bg-green-600 text-white py-1 rounded hover:bg-green-700"
+            >
+              Save Cart
+            </button>
+          </div>
+
+          <!-- Cookies -->
+          <div class="p-4 bg-gray-50 rounded border">
+            <h3 class="font-bold text-purple-600">Cookies</h3>
+            <p class="text-xs text-gray-500 mb-2">
+              Sent to SERVER with every request.
+            </p>
+            <p class="text-xs mb-2">
+              Use for: <span class="bg-yellow-200 px-1">Auth Tokens</span>
+            </p>
+            <button
+              onclick="saveCookie()"
+              class="w-full bg-purple-600 text-white py-1 rounded hover:bg-purple-700"
+            >
+              Set Cookie
+            </button>
+          </div>
+        </div>
+
+        <div
+          id="storage-display"
+          class="mt-4 font-mono text-sm bg-gray-900 text-green-400 p-4 rounded"
+        >
+          Waiting for action...
+        </div>
+      </section>
+
+      <!-- SECTION 2: PRO DEBUGGING -->
+      <section
+        class="bg-white p-8 rounded-xl shadow-lg border-l-8 border-pink-500"
+      >
+        <h2 class="text-2xl font-bold mb-4">2. Debugging Like a Pro</h2>
+        <p class="mb-4 text-gray-600">
+          Stop staring at "Object object". Click these to see better ways to log
+          data.
+        </p>
+
+        <div class="flex flex-wrap gap-4">
+          <button
+            onclick="debugTable()"
+            class="px-6 py-2 bg-pink-100 text-pink-700 font-bold rounded hover:bg-pink-200"
+          >
+            console.table()
+          </button>
+          <button
+            onclick="debugTime()"
+            class="px-6 py-2 bg-pink-100 text-pink-700 font-bold rounded hover:bg-pink-200"
+          >
+            console.time()
+          </button>
+          <button
+            onclick="debugPause()"
+            class="px-6 py-2 bg-red-600 text-white font-bold rounded hover:bg-red-700"
+          >
+            debugger keyword
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
