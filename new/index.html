@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Regex Mastery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .valid {
+        border-color: #22c55e;
+        background-color: #f0fdf4;
+      }
+      .invalid {
+        border-color: #ef4444;
+        background-color: #fef2f2;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-900 text-white min-h-screen p-10 font-sans flex flex-col items-center gap-10"
+  >
+    <div class="max-w-3xl w-full text-center space-y-4">
+      <h1
+        class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500"
+      >
+        Regular Expressions (Regex)
+      </h1>
+      <p class="text-slate-400">
+        The "Alien Language" of pattern matching. Essential for
+        <span class="text-white font-bold">Forms</span> &
+        <span class="text-white font-bold">Search</span>.
+      </p>
+    </div>
+
+    <!-- CHEAT SHEET -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+        <h2 class="text-xl font-bold mb-4 text-pink-400">1. The Basics</h2>
+        <ul class="space-y-2 text-sm text-slate-300 font-mono">
+          <li>
+            <span class="text-yellow-400">/abc/</span> : Matches "abc" anywhere
+          </li>
+          <li>
+            <span class="text-yellow-400">^</span>abc : Must START with abc
+          </li>
+          <li>abc<span class="text-yellow-400">$</span> : Must END with abc</li>
+          <li><span class="text-yellow-400">.</span> : Any single character</li>
+        </ul>
+      </div>
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+        <h2 class="text-xl font-bold mb-4 text-violet-400">2. Special Codes</h2>
+        <ul class="space-y-2 text-sm text-slate-300 font-mono">
+          <li><span class="text-yellow-400">\d</span> : Any Digit (0-9)</li>
+          <li>
+            <span class="text-yellow-400">\w</span> : Any Word Char (A-Z, a-z,
+            0-9, _)
+          </li>
+          <li>
+            <span class="text-yellow-400">[A-Z]</span> : Any Uppercase Letter
+          </li>
+          <li><span class="text-yellow-400">{8,}</span> : Minimum 8 chars</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- INTERACTIVE VALIDATOR -->
+    <div
+      class="bg-white text-slate-900 p-8 rounded-2xl shadow-2xl w-full max-w-xl space-y-6"
+    >
+      <h2 class="text-2xl font-bold border-b pb-4">Live Validator</h2>
+
+      <!-- 1. USERNAME VALIDATION -->
+      <div>
+        <label class="block font-bold text-sm mb-1"
+          >Username (Alphanumeric, 5-15 chars)</label
+        >
+        <p class="text-xs text-gray-500 mb-2 font-mono">
+          Regex: /^[a-zA-Z0-9]{5,15}$/
+        </p>
+        <input
+          type="text"
+          id="username"
+          placeholder="e.g. user123"
+          class="w-full p-3 border-2 rounded-lg outline-none transition-colors"
+          oninput="validate(this, /^[a-zA-Z0-9]{5,15}$/)"
+        />
+        <p class="text-xs mt-1 h-4 validation-msg"></p>
+      </div>
+
+      <!-- 2. EMAIL VALIDATION -->
+      <div>
+        <label class="block font-bold text-sm mb-1">Email Address</label>
+        <p class="text-xs text-gray-500 mb-2 font-mono">
+          Regex: /^\S+@\S+\.\S+$/
+        </p>
+        <input
+          type="text"
+          id="email"
+          placeholder="e.g. alex@code.com"
+          class="w-full p-3 border-2 rounded-lg outline-none transition-colors"
+          oninput="validate(this, /^\S+@\S+\.\S+$/)"
+        />
+        <p class="text-xs mt-1 h-4 validation-msg"></p>
+      </div>
+
+      <!-- 3. PASSWORD STRENGTH -->
+      <div>
+        <label class="block font-bold text-sm mb-1">Password (Strong)</label>
+        <p class="text-xs text-gray-500 mb-2 font-mono">
+          Needs: 1 Upper, 1 Digit, Min 8 chars
+        </p>
+        <input
+          type="text"
+          id="password"
+          placeholder="Type a password..."
+          class="w-full p-3 border-2 rounded-lg outline-none transition-colors"
+          oninput="validatePassword(this)"
+        />
+
+        <!-- Checklist -->
+        <div class="grid grid-cols-3 gap-2 mt-3 text-xs font-bold text-center">
+          <div id="rule-upper" class="bg-gray-200 p-1 rounded text-gray-400">
+            1 UPPER
+          </div>
+          <div id="rule-digit" class="bg-gray-200 p-1 rounded text-gray-400">
+            1 DIGIT
+          </div>
+          <div id="rule-len" class="bg-gray-200 p-1 rounded text-gray-400">
+            8+ CHARS
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
