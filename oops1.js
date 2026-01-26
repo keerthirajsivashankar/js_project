@@ -6,6 +6,7 @@ console.log("--- 1. PRIVATE FIELDS (True Encapsulation) ---");
 console.log("===============================");
 // In old JS, we used _variable to "pretend" it was private.
 // In modern JS, we use the hash (#) symbol. It enforces privacy at the engine level.
+// NOTE: This requires Node.js 12+ or a modern browser (Chrome 74+).
 
 class BankAccount {
   // 1. Define private fields at the top
@@ -34,7 +35,9 @@ const myAccount = new BankAccount("Alex");
 myAccount.deposit(100);
 
 // console.log(myAccount.#balance); // ❌ CRASH! Syntax Error. Private field.
-console.log("1. Wrong Pin:", myAccount.getBalance(0000)); // Access Denied
+
+// FIXED: Changed 0000 to 0 (Leading zeros are not allowed in strict mode)
+console.log("1. Wrong Pin:", myAccount.getBalance(0)); // Access Denied
 console.log("2. Right Pin:", myAccount.getBalance(1234)); // 100
 
 console.log("\n===============================");
@@ -109,6 +112,7 @@ class Button {
   // Regular Method
   click() {
     // 'this' depends on who calls it.
+    // We use optional chaining (?.) to safely access label if 'this' is undefined
     console.log(`Regular Method: ${this?.label}`);
   }
 
