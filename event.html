@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Event Object (e)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-900 text-white min-h-screen p-10 font-sans flex flex-col items-center gap-10">
+
+    <div class="text-center space-y-4">
+      <h1 class="text-4xl font-bold text-blue-400">What is 'e'?</h1>
+      <p class="text-slate-400">
+        It's an object full of details about what just happened. <br>
+        Open your <strong>Console (F12)</strong> to see the full object!
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
+
+      <!-- 1. MOUSE EVENTS -->
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 space-y-4">
+        <h2 class="text-xl font-bold text-pink-400">1. Mouse Events</h2>
+        <div 
+          id="click-box"
+          class="h-32 bg-slate-700 hover:bg-slate-600 rounded-lg flex items-center justify-center cursor-crosshair transition-colors"
+        >
+          Click anywhere inside me!
+        </div>
+        <div class="text-sm font-mono text-green-400 bg-black p-3 rounded h-24 overflow-y-auto" id="mouse-log">
+          Waiting for click...
+        </div>
+      </div>
+
+      <!-- 2. KEYBOARD EVENTS -->
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 space-y-4">
+        <h2 class="text-xl font-bold text-yellow-400">2. Keyboard Events</h2>
+        <input 
+          type="text" 
+          id="key-input"
+          placeholder="Focus here & Press keys..."
+          class="w-full p-3 bg-slate-900 border border-slate-600 rounded text-white outline-none focus:border-yellow-500"
+        >
+        <div class="text-sm font-mono text-green-400 bg-black p-3 rounded h-24 overflow-y-auto" id="key-log">
+          Waiting for typing...
+        </div>
+      </div>
+
+      <!-- 3. FORM EVENTS (Prevent Default) -->
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 space-y-4 md:col-span-2">
+        <h2 class="text-xl font-bold text-red-400">3. e.preventDefault()</h2>
+        <p class="text-sm text-slate-400">
+          Normally, clicking "Submit" reloads the page. We use 'e' to stop it.
+        </p>
+        
+        <form id="my-form" class="flex gap-4">
+          <input type="text" placeholder="Enter name" class="flex-1 p-2 bg-slate-900 rounded border border-slate-600">
+          <button class="bg-red-500 hover:bg-red-600 px-6 py-2 rounded font-bold">Submit</button>
+        </form>
+        
+        <div id="form-log" class="text-center font-bold text-red-400 opacity-0 transition-opacity">
+          ❌ Page Reload BLOCKED by JavaScript!
+        </div>
+      </div>
+
+    </div>
+
+    <script>
+      // --- 1. MOUSE LOGIC ---
+      const box = document.getElementById('click-box');
+      const mouseLog = document.getElementById('mouse-log');
+
+      // Note: We can name it 'e', 'event', 'banana'... anything. Standard is 'e'.
+      box.addEventListener('click', (e) => {
+        console.log("Full Mouse Event:", e); // Look at this in console!
+
+        mouseLog.innerHTML = `
+          Type: ${e.type}<br>
+          Target ID: ${e.target.id}<br>
+          Coordinates: X=${e.offsetX}, Y=${e.offsetY}
+        `;
+      });
+
+
+      // --- 2. KEYBOARD LOGIC ---
+      const input = document.getElementById('key-input');
+      const keyLog = document.getElementById('key-log');
+
+      input.addEventListener('keydown', (e) => {
+        console.log("Full Keyboard Event:", e);
+
+        keyLog.innerHTML = `
+          Key: "${e.key}"<br>
+          Code: "${e.code}"<br>
+          Shift Pressed? ${e.shiftKey}
+        `;
+        
+        if (e.key === "Enter") {
+          keyLog.innerHTML += "<br><strong>🚀 ENTER PRESSED!</strong>";
+        }
+      });
+
+
+      // --- 3. PREVENT DEFAULT ---
+      const form = document.getElementById('my-form');
+      const formLog = document.getElementById('form-log');
+
+      form.addEventListener('submit', (e) => {
+        // THE MOST IMPORTANT LINE FOR FORMS:
+        e.preventDefault(); 
+        
+        console.log("Form submission stopped.");
+        
+        // Show visual feedback
+        formLog.style.opacity = 1;
+        setTimeout(() => formLog.style.opacity = 0, 2000);
+      });
+
+    </script>
+  </body>
+</html>
+
